@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { shortAddress } from "@/lib/format";
 
 type Status = "idle" | "copied" | "failed";
 
@@ -23,19 +24,20 @@ export default function CopyAddress({ address }: { address: string }) {
   }
 
   return (
-    <span className="relative block">
+    <span className="relative inline-block">
       <button
         type="button"
         onClick={copy}
-        title="Copy address"
-        className="w-full cursor-pointer text-left font-mono break-all hover:underline"
+        title={`Copy ${address}`}
+        aria-label={`Copy address ${address}`}
+        className="cursor-pointer rounded-full bg-background px-2 py-0.5 font-mono text-xs whitespace-nowrap text-muted hover:text-foreground"
       >
-        {address}
+        {shortAddress(address)}
       </button>
       {/* Positioned out of the flow so showing it never shifts the layout. */}
       <span
         aria-live="polite"
-        className="pointer-events-none absolute right-0 bottom-0 bg-[var(--background)] pl-2 text-xs"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-full bg-foreground text-xs whitespace-nowrap text-background empty:bg-transparent"
       >
         {status === "copied" && "Copied!"}
         {status === "failed" && "Copy failed"}
