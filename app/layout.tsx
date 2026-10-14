@@ -1,23 +1,18 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Instrument_Serif, Space_Grotesk } from "next/font/google";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import DisclaimerGate from "@/app/disclaimer-gate";
 import DisclaimerText from "@/app/disclaimer-text";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
-  weight: "400",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -28,14 +23,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${instrumentSerif.variable} ${geistMono.variable}`}
-    >
+    <html lang="en" className={`${archivo.variable} ${ibmPlexMono.variable}`}>
       <body className="flex min-h-screen flex-col font-sans antialiased">
         {children}
         <footer className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 pt-4 pb-10 text-xs text-muted">
           <DisclaimerText />
+          <p className="mt-2 font-mono tracking-widest uppercase">
+            A{" "}
+            <a
+              href="https://www.chubbiverse.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-foreground"
+            >
+              Chubbicorns
+            </a>{" "}
+            project 🦄
+          </p>
         </footer>
         <DisclaimerGate>
           <DisclaimerText />

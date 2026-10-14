@@ -1,33 +1,36 @@
 @import "tailwindcss";
 
-/* Chubbicorn palette: warm cream and ink, with rainbow accents. */
+/* Stockpairs palette, from the strategy one-pager: cool paper and ink,
+   with an acid-lime accent and orange for hover. */
 :root {
-  --background: #faf6ef;
-  --foreground: #23201b;
-  --muted: #6b6459;
+  --background: #f3f4ef;
+  --foreground: #121510;
+  --muted: #566052;
   --surface: #ffffff;
-  --border: #e7e0d3;
-  /* Darker than the bright accents so they stay readable on cream. */
-  --up: #2b8a3e;
-  --down: #d6336c;
-
-  --pink: #ff5d8f;
-  --orange: #ffa94d;
-  --yellow: #f5b301;
-  --green: #51cf66;
-  --blue: #4dabf7;
-  --purple: #b197fc;
+  --soft: #e6e9df;
+  --border: #c5cbbd;
+  --acid: #c8f13a;
+  --acid-ink: #172000;
+  --orange: #ff6b35;
+  /* Lime and orange are too light to read as text on paper, so price
+     moves use darker shades in light mode. */
+  --up: #4d7c0f;
+  --down: #c2410c;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1a1814;
-    --foreground: #faf6ef;
-    --muted: #a39b8e;
-    --surface: #23201b;
-    --border: #3a352d;
-    --up: #51cf66;
-    --down: #ff5d8f;
+    --background: #111310;
+    --foreground: #f2f5ec;
+    --muted: #aeb8a6;
+    --surface: #191d18;
+    --soft: #232920;
+    --border: #3d4738;
+    --acid: #d2fa4e;
+    --acid-ink: #101600;
+    --orange: #ff7a48;
+    --up: #d2fa4e;
+    --down: #ff7a48;
   }
 }
 
@@ -36,18 +39,15 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-surface: var(--surface);
+  --color-soft: var(--soft);
   --color-border: var(--border);
+  --color-acid: var(--acid);
+  --color-acid-ink: var(--acid-ink);
+  --color-orange: var(--orange);
   --color-up: var(--up);
   --color-down: var(--down);
-  --color-pink: var(--pink);
-  --color-orange: var(--orange);
-  --color-yellow: var(--yellow);
-  --color-green: var(--green);
-  --color-blue: var(--blue);
-  --color-purple: var(--purple);
-  --font-sans: var(--font-space-grotesk);
-  --font-serif: var(--font-instrument-serif);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-ibm-plex-mono);
 }
 
 body {

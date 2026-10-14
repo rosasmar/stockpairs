@@ -30,14 +30,14 @@ export default function CopyAddress({ address }: { address: string }) {
         onClick={copy}
         title={`Copy ${address}`}
         aria-label={`Copy address ${address}`}
-        className="cursor-pointer rounded-full bg-background px-2 py-0.5 font-mono text-xs whitespace-nowrap text-muted hover:text-foreground"
+        className="cursor-pointer bg-soft px-1.5 py-0.5 font-mono text-xs whitespace-nowrap text-muted hover:text-foreground"
       >
         {shortAddress(address)}
       </button>
       {/* Positioned out of the flow so showing it never shifts the layout. */}
       <span
         aria-live="polite"
-        className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-full bg-foreground text-xs whitespace-nowrap text-background empty:bg-transparent"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center bg-acid font-mono text-xs whitespace-nowrap text-acid-ink empty:bg-transparent"
       >
         {status === "copied" && "Copied!"}
         {status === "failed" && "Copy failed"}
